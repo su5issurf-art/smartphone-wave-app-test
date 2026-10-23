@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#123f43"><meta name="description" content="サンプルビーチの架空の波・風・潮と時間別予報。">
+<title>Sample Beach Surf Check</title><link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+</head>
+<body>
+<header class="header"><a class="brand" href="#"><span class="brand-icon" aria-hidden="true">≋</span><span>Sample Beach<span class="brand-sub">SURF CHECK</span></span></a><span class="demo"><i></i> DEMO DATA</span></header>
+<main>
+<div class="page-heading"><div><p class="eyebrow">YOUR DAILY OCEAN CHECK</p><h1>海のコンディションを、ひと目で。</h1></div><p class="date" id="today"></p></div>
+<section class="hero" aria-labelledby="beach-name">
+<div class="hero-copy"><p class="eyebrow">SAMPLE BEACH · FICTIONAL SPOT</p><h2 id="beach-name">サンプルビーチ<span>（架空）</span></h2><p class="hero-caption">波のリズムに、今日を合わせよう。</p><span class="location"><span aria-hidden="true">⌖</span> 架空のサーフスポット</span></div>
+<svg class="ocean" viewBox="0 0 740 340" fill="none" aria-hidden="true"><circle cx="580" cy="85" r="42" fill="#efce9a"/><path d="M0 230C100 190 155 300 280 220S430 30 535 92C470 88 433 142 465 185C493 222 577 199 635 177C690 155 730 179 770 194V340H0Z" fill="#4c9190"/><path d="M-10 265C80 218 192 321 294 246C380 184 405 81 502 86C436 101 406 161 442 205C488 261 571 221 649 213C712 206 743 238 770 252V340H-10Z" fill="#8bc2b4"/><path d="M-10 290C106 235 179 337 300 273C375 233 399 145 439 119C408 166 407 209 460 239C512 269 577 240 655 249C708 254 745 276 770 288" stroke="#d9e6cb" stroke-width="5"/><path d="M-10 327C126 285 193 358 310 303C387 267 395 223 415 199M464 280C560 310 628 267 743 313" stroke="#d9e6cb" stroke-opacity=".45" stroke-width="2"/><path d="M515 119l7-4m-25 13l6-4m-22 16l4-5" stroke="#f0f1d9" stroke-width="3" stroke-linecap="round"/></svg>
+<div class="hero-bottom"><span><span class="live-dot"></span> 今日のサンプル予報</span><span>実測データではありません</span></div>
+</section>
+<div class="notice"><span aria-hidden="true">ⓘ</span><p><strong>表示データは架空です</strong><span>実際の海況・安全判断には使用しないでください。</span></p><span class="notice-tag">サンプル</span></div>
+<section class="conditions" aria-labelledby="conditions-title"><div class="section-heading"><h2 id="conditions-title">コンディション</h2><span id="selected-time" class="muted"></span></div>
+<div class="condition-grid" aria-live="polite" aria-atomic="true"><article class="rating-card"><p class="card-label">SURF RATING <span>総合評価</span></p><div class="rating-body"><span id="rating" class="rating"></span><div><strong id="rating-label"></strong><p id="rating-note"></p></div></div><div class="rating-scale"><span>◎ 良好</span><span>○ まずまず</span><span>△ いまひとつ</span><span>× 不向き</span></div></article>
+<article class="metric"><p class="card-label"><span class="metric-icon">≋</span> 波高</p><p class="metric-number"><span id="height"></span><small>m</small></p><p class="metric-foot">周期 <strong id="period"></strong><span class="divider">/</span>波向 <strong id="direction"></strong></p></article>
+<article class="metric"><p class="card-label"><span class="metric-icon">↗</span> 風</p><p class="metric-number"><span id="wind"></span><small>m/s</small></p><p class="metric-foot">風向 <strong id="wind-direction"></strong><span class="wind-tag" id="wind-type"></span></p></article>
+<article class="metric tide-card"><p class="card-label"><span class="metric-icon">≈</span> 潮</p><p class="tide-value" id="tide"></p><p class="metric-foot">潮位 <strong id="tide-height"></strong><span class="divider">/</span>中潮</p><svg viewBox="0 0 220 40" aria-hidden="true"><path d="M0 32Q45-22 100 20T220 12" fill="none" stroke="#6d9c92" stroke-width="2"/></svg></article></div>
+</section>
+<section class="forecast" aria-labelledby="forecast-title"><div class="section-heading"><h2 id="forecast-title">今日の時間別予報<span class="section-sub">HOURLY FORECAST</span></h2><span class="forecast-date">24時間 / 1時間ごと</span></div><p class="hint">時間をタップして、コンディションをチェック <span aria-hidden="true">→</span></p><div class="hourly-scroll" tabindex="0" role="region" aria-label="時間別予報。横にスクロールできます"><div class="hourly" id="hourly"></div></div><div class="forecast-footer"><span><i class="legend-dot"></i> バーは波高を表しています</span><span>左右にスクロール <span aria-hidden="true">↔</span></span></div></section>
+<section class="memo"><span class="memo-icon" aria-hidden="true">☀</span><div><p class="eyebrow">TODAY'S SURF NOTE</p><h2>穏やかな朝、気持ちのいい一本を。</h2><p>サンプル予報では、朝は弱いオフショア。午後は風が強まる想定です。<br class="desktop-break">時間ごとの変化をチェックしてみましょう。</p></div><span class="memo-wave" aria-hidden="true">≋</span></section>
+<footer><span>≋ <strong>Sample Beach Surf Check</strong></span><p>表示データは架空です。実在する地点・予報とは関係ありません。</p><span class="footer-label">MADE FOR SLOW MORNINGS & GOOD WAVES</span></footer>
+<noscript><p class="notice">予報を表示するにはJavaScriptを有効にしてください。表示データは架空です。</p></noscript>
+</main></body></html>
